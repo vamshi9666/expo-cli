@@ -139,6 +139,7 @@ type PublishOptions = {
   target?: ProjectTarget;
   resetCache?: boolean;
   maxWorkers?: number;
+  quiet?: boolean;
 };
 
 type Release = {
@@ -948,6 +949,7 @@ async function _buildPublishBundlesAsync(
       target: publishOptions.target,
       resetCache: publishOptions.resetCache,
       logger: ProjectUtils.getLogger(projectRoot),
+      quiet: publishOptions.quiet,
     },
     platforms.map((platform: Platform) => ({
       platform,
